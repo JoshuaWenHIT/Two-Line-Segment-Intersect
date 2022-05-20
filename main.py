@@ -48,7 +48,7 @@ def __intersect(point_aa, point_bb,
         if (s20_x * s10_y - s20_y * s10_x) == 0:
             m = (s20_x * s32_x + s20_y * s32_y) / (s32_x ^ 2 + s32_y ^ 2)
             n = (s20_x * s10_x + s20_y * s10_y) / (s10_x ^ 2 + s10_y ^ 2)
-            if 0 <= m <= 1 and 0 <= n <= 1:
+            if 0 <= m <= 1 or 0 <= n <= 1:
                 return True
             else:
                 return False

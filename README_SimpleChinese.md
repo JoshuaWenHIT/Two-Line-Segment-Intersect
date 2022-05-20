@@ -11,12 +11,28 @@
 ## 2. 数学原理
 在介绍我们的数学原理之前我们需要明确一些方法和概念，这里会对叉乘以及2维向量叉乘进行说明，以方便后面的推理。
 
-**从叉乘到行列式**
+（由于Github下输出公式不是特别方便，这里我用手写的方式代替，如果需要清晰推导过程可在此连接下查看）
 
-在3维空间中，向量可以用该空间下的标准正交基表示，这里假设存在两个3维向量如下所示：
+<details open>
+<summary>从叉乘到行列式</summary>
 
-$$
-\mathbf{a}
-$$
+![](images/p1.jpeg "From cross product to determinant")
 
+</details>
 
+<details open>
+<summary>从3维向量叉乘到2维向量叉乘</summary>
+
+![](images/p2.jpeg "From 3D vector cross product to 2D vector cross product")
+
+</details>
+
+### 推导过程
+
+![](images/p3.jpeg "derivation process 1")
+
+![](images/p4.jpeg "derivation process 2")
+
+## 3. 代码
+
+两个版本的代码都在[main.py](main.py)中，可对照推导过程对代码进行理解。
