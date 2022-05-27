@@ -46,24 +46,34 @@ def __intersect(point_aa, point_bb,
 
     if denom == 0:
         if (s20_x * s10_y - s20_y * s10_x) == 0:
-            m = (s20_x * s32_x + s20_y * s32_y) / (s32_x ^ 2 + s32_y ^ 2)
-            n = (s20_x * s10_x + s20_y * s10_y) / (s10_x ^ 2 + s10_y ^ 2)
-            if 0 <= m <= 1 or 0 <= n <= 1:
-                return True
-            else:
+            _mole_a = s20_x * s32_x + s20_y * s32_y
+            if _mole_a < 0:
                 return False
+            _mole_b = s20_x * s10_x + s20_y * s10_y
+            if _mole_b < 0:
+                return False
+            _denom = s32_x ^ 2 + s32_y ^ 2
+            if _mole_a > _denom:
+                return False
+            if _mole_b > _denom:
+                return False
+            return True
         else:
             return False
 
-    denom_diff = s20_x * s10_y - s20_y * s10_x
-    if (denom_diff <= 0) == denomPositive:
+    mole_a = s20_x * s10_y - s20_y * s10_x
+    if (mole_a <= 0) == denomPositive:
         return False
 
-    denom_diff_ = s20_x * s32_y - s20_y * s32_x
-    if (denom_diff_ <= 0) == denomPositive:
+    mole_b = s20_x * s32_y - s20_y * s32_x
+    if (mole_b <= 0) == denomPositive:
         return False
 
-    if ((denom_diff > denom) == denomPositive) or ((denom_diff_ > denom) == denomPositive):
+    if mole_a == denom and ((mole_b <= denom) == denomPositive):
+        return True
+    if mole_b == denom and ((mole_a <= denom) == denomPositive):
+        return True
+    if ((mole_a > denom) == denomPositive) or ((mole_b > denom) == denomPositive):
         return False
 
     return True
